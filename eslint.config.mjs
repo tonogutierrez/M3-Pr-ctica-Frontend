@@ -6,7 +6,9 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,jsx}"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser, // 🔹 Globales del navegador
+      },
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
@@ -23,10 +25,13 @@ export default [
     },
   },
   {
-    files: ["**/*.test.js"], // ✅ Aplica esta configuración solo a los archivos de test
+    files: ["**/*.test.js"], // ✅ Se aplica solo a los archivos de test
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser, // 🔹 Mantiene los globales del navegador
+        test: "readonly", // 🔹 Define `test` como global de solo lectura
+        expect: "readonly", // 🔹 Define `expect` como global de solo lectura
+      },
     },
-    env: { jest: true }, // ✅ Habilita Jest en ESLint
   },
 ];
