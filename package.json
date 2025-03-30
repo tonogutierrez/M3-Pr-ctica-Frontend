@@ -50,6 +50,8 @@
     "jest-environment-jsdom": "^29.7.0"
   },
   "jest": {
-    "transform": {}
-  }
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
+  },
 }
