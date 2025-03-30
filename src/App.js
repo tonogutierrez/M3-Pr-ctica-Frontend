@@ -1,5 +1,5 @@
 import React from "react";
-import Agencias from "./Agencias";
+import Agencias from "./Agencias.js";
 
 function App() {
   return (
