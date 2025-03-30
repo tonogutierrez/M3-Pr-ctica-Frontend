@@ -1,6 +1,6 @@
-import js from "@eslint/js"; // ✅ Importa ESLint estándar
-import globals from "globals"; // ✅ Importa `globals`
-import reactPlugin from "eslint-plugin-react"; // ✅ Importa el plugin de React
+import js from "@eslint/js";
+import globals from "globals";
+import reactPlugin from "eslint-plugin-react";
 
 export default [
   {
@@ -15,11 +15,18 @@ export default [
     },
     plugins: { js, react: reactPlugin },
     settings: {
-      react: { version: "detect" }, // 🔹 Detecta automáticamente la versión de React
+      react: { version: "detect" },
     },
     rules: {
-      ...js.configs.recommended.rules, // 🔹 Reglas recomendadas de ESLint
-      ...reactPlugin.configs.recommended.rules, // 🔹 Reglas recomendadas de React
+      ...js.configs.recommended.rules,
+      ...reactPlugin.configs.recommended.rules,
     },
+  },
+  {
+    files: ["**/*.test.js"], // ✅ Aplica esta configuración solo a los archivos de test
+    languageOptions: {
+      globals: globals.browser,
+    },
+    env: { jest: true }, // ✅ Habilita Jest en ESLint
   },
 ];
