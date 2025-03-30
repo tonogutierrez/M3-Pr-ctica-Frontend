@@ -1,6 +1,7 @@
 {
   "name": "hana-front",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
